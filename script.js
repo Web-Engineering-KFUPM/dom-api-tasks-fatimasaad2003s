@@ -77,7 +77,23 @@ Use:
 data.cot? not content   // the quote text
 data.author    // the author
 */
+const quoteBtn = document.getElementById("t3-loadQuote");
+const quoteText = document.getElementById("t3-quote");
+const quoteAuthor = document.getElementById("t3-author");
 
+quoteBtn.addEventListener("click", async function () {
+    try {
+      const res = await fetch("https://dummyjson.com/quotes/random");
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+
+      quoteText.textContent = `"${data.quote}"`;
+      quoteAuthor.textContent = `— ${data.author}`;
+    } catch (err) {
+      quoteText.textContent = "Keep going, you’re doing great!";
+      quoteAuthor.textContent = "";
+    }
+  });
 
 
  
