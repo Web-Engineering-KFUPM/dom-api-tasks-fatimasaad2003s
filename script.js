@@ -122,4 +122,45 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+/*  
+=======================================
+TODO4: Dammam Weather Now
+---------------------------------------
+*/
+const weatherBtn = document.getElementById("t4-loadWx");
+const tempEl = document.getElementById("t4-temp");
+const humEl = document.getElementById("t4-hum");
+const windEl = document.getElementById("t4-wind");
+
+weatherBtn.addEventListener("click", async function () {
+  const base = "https://api.openweathermap.org/data/2.5/weather";
+  const city = "Dammam";
+  const units = "metric";
+  const key = "9c29da573838fd8cdd561179419142d7"; 
+
+  const url = `${base}?q=${encodeURIComponent(city)}&appid=${key}&units=${units}`;
+
+try {
+
+    tempEl.textContent = "Loading...";
+    humEl.textContent = "";
+    windEl.textContent = "";
+
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+
+    tempEl.textContent = `${data.main.temp} °C`;       
+    humEl.textContent = `${data.main.humidity} %`;    
+    windEl.textContent = `${data.wind.speed} m/s`;  
+  
+} catch (err) {
+
+    tempEl.textContent = "Error loading weather";
+    humEl.textContent = "";
+    windEl.textContent = "";
+  }
+});
+
+
 });
