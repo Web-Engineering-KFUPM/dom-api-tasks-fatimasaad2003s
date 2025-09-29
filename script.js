@@ -4,6 +4,8 @@
 All tasks in one file (script.js)
 =======================================
 */
+document.addEventListener("DOMContentLoaded", function () {
+
 
 /*  
 =======================================
@@ -19,7 +21,8 @@ inside the <p> element with id="t1-msg".
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
- 
+document.getElementById("t1-msg").innerHTML = "Hello, World!";
+
 
 /*  
 =======================================
@@ -40,6 +43,10 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
+button.addEventListener("click", function () {
+    const element = document.getElementById("t2-btn"); 
+    element.innerHTML = "<p>You clicked the button!</p>";
+});
  
 
 /*  
@@ -65,9 +72,11 @@ The API returns JSON like:
 }
 
 Use:
-data.content   // the quote text
+data.cot? not content   // the quote text
 data.author    // the author
 */
+
+
  
 
 /*  
@@ -94,3 +103,4 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+});
