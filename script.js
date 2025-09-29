@@ -21,7 +21,7 @@ inside the <p> element with id="t1-msg".
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
-document.getElementById("t1-msg").innerHTML = "Hello, World!";
+document.getElementById("t1-msg").textContent = "Hello, World!";
 
 
 /*  
@@ -43,9 +43,11 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
-button.addEventListener("click", function () {
-    const element = document.getElementById("t2-btn"); 
-    element.innerHTML = "<p>You clicked the button!</p>";
+const button  = document.getElementById("t2-btn");
+const status = document.getElementById("t2-status");
+
+button .addEventListener("click", function () {
+status.textContent = "You clicked the button!";
 });
  
 
@@ -75,6 +77,7 @@ Use:
 data.cot? not content   // the quote text
 data.author    // the author
 */
+
 
 
  
